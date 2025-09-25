@@ -28,6 +28,7 @@
 #include "tilt.h"
 #include "custom_chars.h"
 #include "signal_input.h"
+#include "thermo_sensor.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -130,7 +131,8 @@ int main(void)
    RGB_LCD_SetRGB(&lcd, 0, 128, 255); // Light blue
    RGB_LCD_Clear(&lcd);
 
-   MenuState currentMenu = MENU_MAIN;
+   //MenuState currentMenu = MENU_MAIN;
+   MenuState currentMenu = MENU_SENSOR_RTD;
    Button last_click = NONE;
    float t_temp;
    float freq;
@@ -144,7 +146,7 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-  	  last_click = GetButton();
+  	  //!!last_click = GetButton();
   	  //flip = detect_tilt();
   	  flip = false;
 
@@ -166,7 +168,7 @@ int main(void)
   					break;
 
   				case MENU_SENSOR_RTD: {
-  					t_temp = rtd_read_temperature_f();
+  					t_temp = thermo_read_temperature_f();
   					RGB_LCD_Clear(&lcd);
 
   					if (flip == false){
