@@ -186,3 +186,5 @@ VP_SYS_VS_Systick.Signal=SYS_VS_Systick
 board=NUCLEO-L152RE
 boardIOC=true
 isbadioc=false
+isbadioc=false
+isbadioc=false
